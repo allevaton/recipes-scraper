@@ -5,6 +5,9 @@ const Recipe = require('../Recipe');
 module.exports = {
   hostname: 'allrecipes.com',
 
+  /**
+   * @param {string} url
+   */
   scrape(url) {
     return scrapeHelper(url)
       .then($ => {
