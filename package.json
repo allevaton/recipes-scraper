@@ -1,0 +1,22 @@
+{
+  "name": "allrecipes-trello",
+  "version": "1.0.0",
+  "description": "Scrapes AllRecipes website an injects it into an organized trello card",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "opener": "^1.4.2",
+    "passport": "^0.3.2",
+    "passport-trello": "^0.1.5",
+    "request": "^2.79.0",
+    "yargs": "^6.5.0"
+  }
+}
