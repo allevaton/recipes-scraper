@@ -3,4 +3,7 @@ yarn.lock
 .vscode
 .idea
 
+token
+typings.json
+
 node_modules
