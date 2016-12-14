@@ -34,6 +34,9 @@ module.exports = {
           ingredients,
           instructions
         });
+      })
+      .catch(err => {
+        console.error(err);
       });
   }
 };
