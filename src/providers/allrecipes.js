@@ -32,11 +32,13 @@ module.exports = {
             return instruction;
           });
 
-        return new Recipe({
+        let recipe = new Recipe({
           name,
           ingredients,
           instructions
         });
+        console.log(recipe);
+        return recipe;
       })
       .catch(err => {
         console.error(err);

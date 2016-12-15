@@ -54,12 +54,10 @@ function startServer() {
     app.use('/auth/trello', passport.authenticate('trello'));
 
     app.use('/auth/provider/trello',
-      passport.authenticate(
-        'trello', {
-          successRedirect: '/',
-          failureRedirect: '/login'
-        }
-      )
+      passport.authenticate('trello', {
+        successRedirect: '/',
+        failureRedirect: '/login'
+      })
     );
 
     app.use('/', ensureAuthenticated, (req, res) => {
@@ -82,5 +80,4 @@ module.exports.authenticate = () => {
     });
 }
 
-module.exports.destroy = () => {
-}
+module.exports.destroy = () => {}
