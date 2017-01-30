@@ -17,7 +17,7 @@ import beginScraping from './scraper';
 let authToken: string = '';
 
 function ready() {
-  beginScraping(authToken, urls);
+  beginScraping(urls);
 }
 
 if (!fs.existsSync('token')) {

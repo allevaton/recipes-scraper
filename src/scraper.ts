@@ -5,7 +5,7 @@ import providers from './providers/index';
 /**
  * Goes through all the URLs and begins scraping each based on their domain
  */
-export default function beginScraping(token: string, urls: Array<string>) {
+export default function beginScraping(urls: Array<string>) {
   urls.forEach(recipeUrl => {
     const urlParts = url.parse(recipeUrl);
 
@@ -18,8 +18,7 @@ export default function beginScraping(token: string, urls: Array<string>) {
       }
     });
 
-    if (!matches) {
-      console.log(`No scrapers matched: ${recipeUrl}`);
-    }
+    if (!matches)
+      console.log('No scrapers matched:', recipeUrl);
   });
 }
