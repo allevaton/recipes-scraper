@@ -1,17 +1,14 @@
-const scrapeHelper = require('../utils/scrapeHelper');
+import scrapeHelper from '../utils/scrapeHelper';
 
-const Recipe = require('../Recipe');
-
-module.exports = {
+const allrecipes: Provider = {
   hostname: 'allrecipes.com',
 
-  /**
-   * @param {string} url
-   */
-  scrape(url) {
+  scrape(url: string) {
     return scrapeHelper(url)
       .then($ => {
         let name = $('.recipe-summary').find('h1').text();
+        console.log(name);
+
         let ingredients = $('.checklist')
           .find('li label')
           .map((i, ingredient) => {
@@ -19,8 +16,9 @@ module.exports = {
           })
           .toArray()
           .filter(ingredient => {
-            return ingredient && !ingredient.startsWith('Add all')
-          });
+            return String(ingredient).lastIndexOf('Add all', 0) != 0
+          })
+          .map(String);
 
         let instructions = $('.directions--section .list-numbers')
           .find('li')
@@ -30,18 +28,19 @@ module.exports = {
           .toArray()
           .filter(instruction => {
             return instruction;
-          });
+          })
+          .map(String);
 
-        let recipe = new Recipe({
+        let recipe: Recipe = {
           name,
           ingredients,
           instructions
-        });
+        };
+
         console.log(recipe);
         return recipe;
       })
-      .catch(err => {
-        console.error(err);
-      });
   }
-};
+}
+
+export default allrecipes;

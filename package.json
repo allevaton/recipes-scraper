@@ -4,19 +4,35 @@
   "description": "Scrapes AllRecipes website an injects it into an organized trello card",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "node ./build/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "tsc --watch"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cheerio": "^0.22.0",
-    "dotenv": "^2.0.0",
+    "dotenv": "^4.0.0",
     "express": "^4.14.0",
     "express-session": "^1.14.2",
     "opener": "^1.4.2",
     "passport": "^0.3.2",
     "passport-trello": "^0.1.5",
     "request": "^2.79.0",
+    "typescript": "next",
     "yargs": "^6.5.0"
+  },
+  "devDependencies": {
+    "@types/cheerio": "^0.17.31",
+    "@types/dotenv": "^2.0.20",
+    "@types/es6-promise": "^0.0.32",
+    "@types/express-session": "^0.0.32",
+    "@types/node": "^7.0.4",
+    "@types/opener": "^1.4.0",
+    "@types/passport": "^0.3.2",
+    "@types/promise": "^7.1.30",
+    "@types/request": "^0.0.39"
   }
 }

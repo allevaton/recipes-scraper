@@ -1,37 +1,38 @@
-const fs = require('fs');
+import * as fs from 'fs';
 
-if (process.argv.length === 2) {
+if (process.argv.length == 2) {
   console.error('Must supply at least one argument. Should be a recipe URL');
   process.exit(-1);
 }
 
 const urls = process.argv.slice(2);
 
-const {
+import {
   authenticate,
   destroy
-} = require('./src/authenticate');
+} from './authenticate';
 
-const beginScraping = require('./src/scraper');
+import beginScraping from './scraper';
 
-let authToken = '';
+let authToken: string = '';
 
 function ready() {
   beginScraping(authToken, urls);
 }
 
 if (!fs.existsSync('token')) {
-  authenticate()
+  ready();
+  /*authenticate()
     .then(token => {
       authToken = token;
       fs.writeFile('token', token);
       destroy();
-      ready();
     })
-    .catch(() => {
+    .catch(err => {
       console.log('There was a problem with the token authentication');
-    });
+      console.log(err);
+    });*/
 } else {
-  authToken = fs.readFileSync('token');
+  authToken = fs.readFileSync('token').toString();
   ready();
 }

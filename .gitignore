@@ -3,6 +3,8 @@ yarn.lock
 .vscode
 .idea
 
+build/
+
 token
 typings.json
 
