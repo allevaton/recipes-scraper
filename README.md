@@ -1,2 +1,3 @@
-# recipes-scraper
-Scrapes recipe websites and stores them somewhere
+# Recipes-Scraper
+Scrapes recipe websites and stores them somewhere safe.
+Makes the consumer's job easier.
